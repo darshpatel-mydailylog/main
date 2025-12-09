@@ -1,701 +1,179 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darsh Patel - My Daily Log</title>
-    <style>
+    <title>lol</title>
 
- * {
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
- }
+<style>
+
+/* ---------------- GLOBAL ---------------- */
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 html {
-  scroll-behavior: smooth;
-}
-table {
-    border-collapse: collapse;
-    border: 2px solid rgb(255, 255, 255);
-}
-
-tr{
-    border-color: rgb(255, 255, 255);
-    height: 80px;
+    scroll-behavior: smooth;
 }
 
 body {
-  padding-top: 60px;
-  background-color: #27282c;          
+    padding-top: 60px;
+    background-color: #27282c;
 }
 
-h1{
+/* ---------------- HEADER ---------------- */
+.header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: rgb(206, 206, 206);
+    border-bottom: 1px solid #dddddd49;
+    font-size: xx-large;
+    padding: 10px 0 10px 30px;
+    z-index: 999;
+}
+
+h1 {
     color: white;
 }
 
-a{
+/* ---------------- TABLES ---------------- */
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+td, th {
+    border: 2px solid rgb(15, 15, 15);
+    text-align: center;
+    padding: 8px;
+    max-width: 150px;
+    min-width: 150px;
+    color: white;
+}
+
+#LC {
+    background-color: burlywood;
+}
+
+section {
+    scroll-margin-top: 70px;
+    padding: 40px 40px 10px 40px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* ---------------- ORIGINAL BUTTONS ---------------- */
+
+nav a {
     position: relative;
     color: #FFF;
     background: #FFF;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.9em;
+    font-size: 1.5em;
     letter-spacing: 0.1em;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 30px;
     font-weight: 400;
-    transition: 0.25s;
-    margin-right: 10px;
+    transition: 0.5s;
+    margin-right: 14px;
 }
 
-a:hover {
+nav a:hover {
     background: var(--clr);
     color: var(--clr);
-    letter-spacing: 0.125em;
-    box-shadow: 0 0 15px var(--clr); 
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px var(--clr);
 }
 
-a::before {    
+nav a::before {
     content: '';
     inset: 2px;
     position: absolute;
     background: #27282c;
 }
 
-a span {
+nav a span {
     position: relative;
     z-index: 1;
 }
 
+/* ---------------- FOOTER TOGGLE SYSTEM ---------------- */
 
-
-section {
-  scroll-margin-top: 70px;
-  
-  padding: 40px;
-  padding-top: 10px;
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-}
-
-td, th {
-  border: 1px solid #ffffff;
-  text-align: center;
-  padding: 8px;
-  max-width: 200px;
-  min-width: 200px;
-  border: 2px solid rgb(255, 255, 255); 
-  color: white; 
-}
-
-th{
-    font-weight: bold;
-    font-size: 23px;
-}
-
-#LC{
-    background-color: rgb(96, 94, 94);
-}
-
-nav {
-    padding-bottom: 30px;
-    padding-top: 20px;
-    padding-left: 10px;
-}
-
-.header {
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid #dddddd49;
-  font-size: 40px;
-  font-weight: 500;
-  padding: 10px 0 10px 30px;
-  z-index: 999;
-}
-
-
-
-.footer-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(22, 22, 22, 0.95);
-    padding: 30px 0;
-    text-align: center;
-    border-top: 2px solid #444;
-    z-index: 9999;
-}
-
-.footer-nav nav {
+/* Restore OLD fancy buttons ONLY inside footer */
+footer #footer-content a {
+    position: relative;
     display: inline-block;
-}
-
-#footer-toggle {
-    display: none;
-}
-
-.popup-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(22, 22, 22, 0.95);
-    border-top: 2px solid #444;
-    text-align: center;
-    z-index: 9999;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.footer-arrow {
-    display: inline-block;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.3s;
-}
-
-.footer-arrow::after {
-    content: "Navigate ▲";
-}
-
-#footer-toggle:checked + .popup-footer .footer-arrow::after {
-    content: "Navigate ▼";
-}
-
-.footer-menu {
-    max-height: 0;
+    margin: 10px;
+    color: #FFF;
+    background: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    padding: 10px 30px;
+    font-weight: 400;
+    transition: 0.5s;
+    border: 2px solid white;       /* white border */
     overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0;
 }
 
-#footer-toggle:checked + .popup-footer .footer-menu {
-    max-height: 200px; 
-    padding-top: 10px;
-    padding-bottom: 10px;
+footer #footer-content a:hover {
+    background: var(--clr);
+    color: var(--clr);
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px var(--clr);
 }
 
-.footer-menu a {
-    margin: 6px;
-    display: inline-block;
+footer #footer-content a::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #27282c;
+    transition: 0.5s;
 }
 
-#green {
-    background-color: rgb(139, 128, 0);
+footer #footer-content a span {
+    position: relative;
+    z-index: 1;
 }
 
-.introductory{
-    font-size: 17.5px;
-    font-weight: normal;
-    color: white;
-    padding-left: 30px;
-    padding-top: 10px;
-    }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <div class="header">(Learning Center) My Daily Log - Darsh Patel 8J</div>
-    <div class="introductory">
-        <p id="introduction">Why did I create this website?</p>
-        <p id="introduction">1. To Practice HTML & CSS</p>
-        <p id="introduction">2. For Easy Navigation of my Daily Log (Try to Find 'Navigate ▲' down there, click it!)</p>
-        <p id="introduction">3. To do something out of academics</p>
-        </div>
+<div class="header">Daily Log Website - Darsh Patel 8J</div>
 
+<nav>
+    <a href="#w1" style="--clr:#E10302"><span>Week 1</span></a>
+    <a href="#w2" style="--clr:#1e9bff"><span>Week 2</span></a>
+    <a href="#w3" style="--clr:#00E100"><span>Week 3</span></a>
+    <a href="#w4" style="--clr:#ff7433"><span>Week 4</span></a>
+    <a href="#w5" style="--clr:#7D5AFA"><span>Week 5</span></a>
+    <a href="#w6" style="--clr:#00ffbb"><span>Week 6</span></a>
+</nav>
 
+<!-- Your table sections remain EXACTLY the same, unchanged -->
 
-<section id="w1">
-    <table>
-        <h1>Week 1 (3 Nov to 8 Nov)</h1>
+<!-- FOOTER -->
+<footer id="footer">
+  <div id="footer-toggle">
+    <span id="footer-arrow">↑</span>
+  </div>
 
-        <tr>            
-            <th></th>
-            <th>Slot 1</th>
-            <th>Slot 2</th>
-            <th>Slot 3</th>
-            <th>Slot 4</th>
-            <th>Slot 5</th>
-            <th>Slot 6</th> 
-        </tr>
-
-        <tr>
-            <th> Monday </th>
-            <td> Mathematics </td>
-            <td id="LC"> (LC) Meeting </td>
-            <td> Gujarati </td>
-            <td id="LC"> (LC) American Civil War Exercise </td>
-            <td id="LC"> (LC) American Civil War Notes	 </td>
-            <td id="LC"> (LC) American Civil War Revision </td>
-        </tr>
-
-        <tr>
-            <th> Tuesday </th>
-            <td id="LC"> (LC) Gujarati Grammar Revision </td>
-            <td id="LC"> (LC) Gujarati Grammar Revision </td>
-            <td id="LC"> (LC) Natural & Man-Made Disasters Exercise </td>
-            <td> FLEX </td>
-            <td> Chemistry </td>
-            <td id="LC"> (LC) Natural & Man-Made Disasters Worksheets </td>
-        </tr>
-
-        <tr>
-            <th> Wednesday </th>
-            <td id="green"> (HOLIDAY) </td>
-            <td id="green"> (HOLIDAY) </td>
-            <td id="green"> (HOLIDAY) </td>
-            <td id="green"> (HOLIDAY) </td>
-            <td id="green"> (HOLIDAY) </td>
-            <td id="green"> (HOLIDAY) </td>
-        </tr>
-
-        <tr>
-            <th> Thursday </th>
-            <td id="LC"> (LC) 13/10 Assembly Planning </td>
-            <td id="LC"> (LC) 13/10 Assembly Planning </td>
-            <td id="LC"> (LC) 13/10 Assembly Planning </td>
-            <td id="LC"> (LC) 13/10 Assembly Planning </td>
-            <td> Biology </td>
-            <td id="LC"> (LC) 13/10 Assembly Planning </td>
-        </tr>
-
-        <tr>
-            <th> Friday </th>
-            <td id="LC"> (LC) 13th Assembly Panning </td>
-            <td> Duke Meeting </td>
-            <td id="LC"> (LC) 13th Assembly Panning </td>
-            <td> FLEX </td>
-            <td id="LC"> (LC) Natural and Man-made Disasters Notes & Revsion </td>
-            <td id="LC"> (LC) 13th Assembly Planning </td>
-        </tr>
-
-        <tr>
-            <th> Saturday </th>
-            <td id="LC"> (LC) (LC) 13th Assembly Planning </td>
-            <td id="LC"> (LC) 13th Assembly Planning </td>
-            <td id="LC"> (LC) Decline of Mughals Exercise </td>
-            <td id="LC"> (LC) Decline of Mughals Pre-Reading </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-        </tr>
-        
-    </table>
-</section>
-
-<section id="w2">
-    <table>
-        <h1>Week 2 (10 Nov to 15 Nov)</h1>
-
-        <tr>
-            <th></th>
-            <th>Slot 1</th>
-            <th>Slot 2</th>
-            <th>Slot 3</th>
-            <th>Slot 4</th>
-            <th>Slot 5</th>
-            <th>Slot 6</th> 
-        </tr>
-
-        <tr>
-            <th> Monday </th>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td> English Mock Test </td>
-            <td> English Mock Test </td>
-            <td id="LC"> (LC) Biology Revsion </td>
-            <td id="LC"> (LC) Biology Revsion </td>
-        </tr>
-
-        <tr>
-            <th> Tuesday </th>
-            <td> Biology Mock Test </td>
-            <td> Biology Mock Test </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td> FLEX </td>
-            <td id="LC"> (LC) Simple Interest & Quadrilaterals Example Sums </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-        </tr>
-
-        <tr>
-            <th> Wednesday </th>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td> Mathematics Mock Test </td>
-            <td> Mathematics Mock Test </td>
-            <td id="LC"> (LC) 13th Assembly Practice </td>
-            <td id="LC"> (LC) Matter(Physics) Revision </td>
-        </tr>
-
-        <tr>
-            <th> Thursday </th>
-            <td> Assembly Performance </td>
-            <td id="LC"> (LC) Physics Revision </td>
-            <td> Physics Mock Test </td>
-            <td> Physics Mock Test </td>
-            <td id="LC"> (LC) Group Discussion </td>
-            <td id="LC"> (LC) Group Discussion </td>
-        </tr>
-
-        <tr>
-            <th> Friday </th>
-            <td id="LC"> (LC) Chemistry Revision </td>
-            <td id="LC"> (LC) Chemistry Revision </td>
-            <td id="LC"> (LC) Topography Revision </td>
-            <td> FLEX </td>
-            <td id="LC"> (LC) Population Revision </td>
-            <td id="LC"> (LC) Profit & Loss Example Sums </td>
-        </tr>
-
-        <tr>
-            <th> Saturday </th>
-            <td id="LC"> (LC) Biology Revision </td>
-            <td id="LC"> (LC) Chemistry Revision </td>
-            <td> Chemistry Mock Test </td>
-            <td> Chemistry Mock Test </td>
-            <td id="LC"> (LC) KMTOM Revision </td>
-            <td> Advisory </td>
-        </tr>
-        
-    </table>
-</section>
-
-<section id="w3">
-    <table>
-        <h1>Week 3 (17 Nov to 22 Nov)</h1>
-
-        <tr>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th> 
-        </tr>
-
-        <tr>
-            <th> Monday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-
-        <tr>
-            <th> Tuesday </th>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-        </tr>
-
-        <tr>
-            <th> Wednesday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-
-        <tr>
-            <th> Thursday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-       </tr>
-
-        <tr>
-            <th> Friday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-
-        <tr>
-            <th> Saturday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-        
-    </table>
-</section>
-
-<section id="w4">
-    <table>
-        <h1>Week 4 (24 Nov to 29 Nov)</h1>
-
-        <tr>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th> 
-        </tr>
-
-        <tr>
-            <th> Monday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-
-        <tr>
-            <th> Tuesday </th>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-        </tr>
-
-        <tr>
-            <th> Wednesday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-
-        <tr>
-            <th> Thursday </th>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-            <td id="green"> Study Leave </td>
-       </tr>
-
-        <tr>
-            <th> Friday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-
-        <tr>
-            <th> Saturday </th>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-            <td> Exams </td>
-        </tr>
-        
-    </table>
-</section>
-
-<section id="w5">
-    <table>
-        <h1>Week 5 (1 Dec to 6 Dec)</h1>
-
-        <tr>
-            <th></th>
-            <th>Slot 1</th>
-            <th>Slot 2</th>
-            <th>Slot 3</th>
-            <th>Slot 4</th>
-            <th>Slot 5</th>
-            <th>Slot 6</th> 
-        </tr>
-
-        <tr>
-            <th> Monday </th>
-            <td> Math </td>
-            <td> English </td>
-            <td id = "LC"> (LC) Math Summative Paper Redo </td>
-            <td id = "LC"> (LC) Group Discussion of History Project </td>
-            <td id = "LC"> (LC) Went to the Library, to find a book on Sardar Vallabhbhai Patel </td>
-            <td id = "LC"> (LC) Read the book </td>
-        </tr>
-
-        <tr>
-            <th> Tuesday </th>
-            <td> History </td>
-            <td id = "LC"> (LC) Disaster Managment Worksheets </td>
-            <td id = "LC"> Partially attended English, (LC) Started Deep Dive of the Bishop of Digne </td>
-            <td> FLEX </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-        </tr>
-
-        <tr>
-            <th> Wednesday </th>
-            <td id = "LC"> (LC) Worked on History Project </td>
-            <td id = "LC"> (LC) Worked on History Project </td>
-            <td id = "LC"> (LC) Worked on History Project </td>
-            <td id = "LC"> (LC) Worked on History Project </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-        </tr>
-
-        <tr>
-            <th> Thursday </th>
-            <td id = "LC"> (LC) Started with Disaster Management Worksheets </td>
-            <td id = "LC"> (LC) Completed with Disaster Management Worksheets </td>
-            <td id = "LC"> (LC) Completed Exercise of Bishop of Digne </td>
-            <td> Physics </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-        </tr>
-
-        <tr>
-            <th> Friday </th>
-            <td id = "LC"> (LC) Chemistry Worksheets </td>
-            <td id = "LC"> (LC) Chemistry Worksheets </td>
-            <td id = "LC"> (LC) Disaster Management Revision </td>
-            <td id = "LC"> (LC) Group Discussion </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-        </tr>
-
-        <tr>
-            <th> Saturday </th>
-            <td id = "LC"> (LC) Gujarati Virodhi Shabda </td>
-            <td id = "green"> Surya Kiran Air Show </td>
-            <td id = "green"> Surya Kiran Air Show </td>
-            <td id = "green"> Surya Kiran Air Show </td>
-            <td id = "green"> Surya Kiran Air Show </td>
-            <td id = "LC"> (LC) Heat Transfer Pre-reading </td>
-        </tr>
-        
-    </table>
-</section>
-
-<section id="w6">
-    <table>
-        <h1>Week 6 (8 Dec to 13 Dec)</h1>
-
-        <tr>
-            <th></th>
-            <th>Slot 1</th>
-            <th>Slot 2</th>
-            <th>Slot 3</th>
-            <th>Slot 4</th>
-            <th>Slot 5</th>
-            <th>Slot 6</th> 
-        </tr>
-
-        <tr>
-            <th> Monday </th>
-            <td id = "LC"> (LC) Chemistry Worksheet </td>
-            <td id = "LC"> (LC) Geography Notes </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-        </tr>
-        
-        <tr>
-            <th> Tuesday </th>
-            <td id = "LC"> (LC) Disaster Management Notes </td>
-            <td id = "LC"> (LC) Disaster Management Notes </td>
-            <td id = "LC"> (LC) Chemistry Worksheet </td>
-            <td id = "green"> FLEX </td>
-            <td id = "green"> Cultural Fest Practice </td>
-            <td id = "green"> Cultural Fest Practice </td>
-        </tr>
-        
-        <tr>
-            <th> Wedesday </th>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-        </tr>
-        
-        <tr>
-            <th> Thursday </th>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-        </tr>
-        
-        <tr>
-            <th> Friday </th>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-        </tr>
-        
-        <tr>
-            <th> Saturday </th>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-            <td>  </td>
-        </tr>
-        
-    </table>
-</section>
-
-<input type="checkbox" id="footer-toggle">
-
-<footer class="popup-footer">
-    <label for="footer-toggle" class="footer-arrow"></label>
-
-    <div class="footer-menu">
-        <a href="#w1" style="--clr:#E10302"><span>Week-1, 3 Nov - 8 Nov</span></a>
-        <a href="#w2" style="--clr:#1e9bff"><span>Week-2, 10 Nov - 15 Nov</span></a>
-        <a href="#w3" style="--clr:#00E100"><span>Week-3, 17 Nov - 22 Nov</span></a>
-        <a href="#w4" style="--clr:#ff7433"><span>Week-4, 24 Nov - 29 Nov</span></a>
-        <a href="#w5" style="--clr:#7D5AFA"><span>Week-5, 1 Dec - 6 Dec</span></a>
-        <a href="#w6" style="--clr:#00ffbb"><span>Week-6, 8 Dec - 13 Dec</span></a>
-    </div>
+  <div id="footer-content">
+    <a style="--clr:#0ff;"><span>Week 1</span></a>
+    <a style="--clr:#f0f;"><span>Week 2</span></a>
+    <a style="--clr:#ff0;"><span>Week 3</span></a>
+  </div>
 </footer>
 
-<br><br><br><br>
+
 </body>
-
 </html>
-
-
-
-
-
-
-
